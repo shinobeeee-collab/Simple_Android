@@ -3,23 +3,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
+    android:gravity="center"
     android:padding="16dp">
-
-    <!-- Картинка -->
+    <!-- Картинка по центру -->
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:src="@drawable/ic_launcher_background"
-        android:contentDescription="@string/image" />
-
-    <!-- Column = вложенный LinearLayout -->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginStart="16dp">
+        android:layout_width="164dp"
+        android:layout_height="164dp"
+        android:src="@drawable/ic_launcher_background" />
 
         <TextView
             android:id="@+id/textHello"
@@ -41,6 +33,5 @@
             android:layout_height="wrap_content"
             android:text="@string/clicks_count"
             android:textSize="16sp" />
-    </LinearLayout>
 
-</LinearLayout>
+    </LinearLayout>
