@@ -36,13 +36,24 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        val imageView = findViewById<ImageView>(R.id.imageView)
+        val imagePlay = findViewById<ImageView>(R.id.imagePlay)
+        val imageStop = findViewById<ImageView>(R.id.imageStop)
         val textClicks = findViewById<TextView>(R.id.textClicks)
 
-        imageView.setOnClickListener {
+        imagePlay.setOnClickListener {
             clickCount++
             textClicks.text = "Clicks: $clickCount"
             Log.i("CountTAG", "count = $clickCount")
+
+            // Скрываем Play, показываем Stop
+            imagePlay.visibility = ImageView.GONE
+            imageStop.visibility = ImageView.VISIBLE
+        }
+
+        imageStop.setOnClickListener {
+            // Скрываем Stop, показываем Play
+            imageStop.visibility = ImageView.GONE
+            imagePlay.visibility = ImageView.VISIBLE
         }
     }
 }
