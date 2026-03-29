@@ -1,6 +1,7 @@
 package com.example.easy_app
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -20,8 +21,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 
 
@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     //
-    val clickCount = remember { mutableStateOf(0) }
+    val clickCount = remember { mutableIntStateOf(0) }
 
     Row(modifier = modifier) {
         Image(
@@ -54,13 +54,14 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             modifier = Modifier
                 .size(64.dp)
                 .clickable {
-                    clickCount.value++  // увеличиваем счётчик
+                    clickCount.intValue++  // увеличиваем счётчик
                 }
         )
         Column(modifier = Modifier.padding(start = 16.dp)) {
             Text(text = "Hello $name", fontSize = 24.sp)
             Text(text = "Nice to meet you", fontSize = 16.sp)
-            Text(text = "Clicks: ${clickCount.value}", fontSize = 16.sp)
+            Text(text = "Clicks: ${clickCount.intValue}", fontSize = 16.sp)
+            Log.i("CountTAG", "count = ${clickCount.intValue}")
         }
     }
 }
